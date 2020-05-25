@@ -1,0 +1,44 @@
+{% load static %}
+<div class="container review">
+    <h2>що говорять наші <span>щасливі клієнти</span></h2>
+    <div class="quote_hr_div d-flex col-3">
+        <div class="qoute_circle d-flex col-2">
+            <p id="scobochki">,,</p>
+        </div>
+    </div>
+    <div class="d-flex col-12" id="carousel">
+        <div id="carou_left"><img src="{% static 'img/left_arrow.png'%}" alt="left_arrow"></div>
+        <div class="text_div">
+            <p id="root"></p>
+        </div>
+        <div id="carou_right"><img src="{% static 'img/right_arrow.png'%}" alt="right_arrow"></div>
+
+        <!--Зразки відгуків-->
+
+        <div class="text_div">
+            <p class="text_rew">Дуже вдячна компанії за підібране житло, за те , що прислухались до всіх моїх побажань.
+                Найкраща цінова політика, ще й надали знижку при купівлі. 100% буду рекомендувати своїм друзям та
+                знайомим. Дуже дякую.
+                <br><span class="custom_name">Світлана Денисюк, Київ</span></p>
+        </div>
+        <div class="text_div">
+            <p class="text_rew">Best rieltor company in the world! I will recomend you to my friends in Hollywood. Щиро
+                дякую!
+                <br><span class="custom_name">Angelina Jolie, LA</span></p>
+        </div>
+        <div class="text_div">
+            <p class="text_rew">Perfect! Just perfect! Thank you guys! Now I have the best appartments in NY
+                <br><span class="custom_name">Ryan Gosling, New York</span></p>
+        </div>
+
+        <!--////////////////-->
+
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <button class="btn--forward">Більше >></button>
+        </div>
+    </div>
+
+</div>

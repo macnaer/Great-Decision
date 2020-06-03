@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<main>
+<main class="home">
     <div class="main-fluid">
         <div class="choice_of_housing">
             <div class="container">
                 <div class="row">
                     <div class="col-12 text">
-                        <h1>Підбираємо <span>житло</span> під <br> кожну особистість</h1>
+                        <h1>Підбираємо <span class="yellow">житло</span> під <br> кожну особистість</h1>
                         <p class="text-title">Вибір власного житла - це один з найважливіших рішень у житті людини. Це
                             не дивно, адже від вибору житла залежатиме комфорт і затишок проживання в певному середовищі
                             кожної людинию.
@@ -24,8 +24,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-3 main_smart">
-                        <div class="yellow">
-                            <img src="{% static 'img/Vector Smart Object.png' %}">
+                        <div class="yellow_circle ">
+                            <img src="{{ STATIC_PREFIX }}img/Vector Smart Object.png">
                         </div>
                         <div class="main_smart_div">
                             <h4>Продаж квартир</h4>
@@ -33,8 +33,8 @@
                         </div>
                     </div>
                     <div class="col-3 main_smart">
-                        <div class="yellow">
-                            <img src="{% static 'img/Vector Smart Object_2.png' %}">
+                        <div class="yellow_circle">
+                            <img src="{{ STATIC_PREFIX }}img/Vector Smart Object_2.png">
                         </div>
                         <div class="main_smart_div">
                             <h4>Новобудови</h4>
@@ -42,8 +42,8 @@
                         </div>
                     </div>
                     <div class="col-3 main_smart">
-                        <div class="yellow">
-                            <img src="{% static 'img/Vector Smart Object_3.png' %}">
+                        <div class="yellow_circle">
+                            <img src="{{ STATIC_PREFIX }}img/Vector Smart Object_3.png">
                         </div>
                         <div class="main_smart_div">
                             <h4>Житлові будинки</h4>
@@ -52,8 +52,8 @@
                         </div>
                     </div>
                     <div class="col-3 main_smart">
-                        <div class="yellow">
-                            <img src="{% static 'img/Vector Smart Object_4.png' %}">
+                        <div class="yellow_circle">
+                            <img src="{{ STATIC_PREFIX }}img/Vector Smart Object_4.png">
                         </div>
                         <div class="main_smart_div">
                             <h4>Елітне житло</h4>
@@ -67,13 +67,13 @@
             </div>
             <div class="choice">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-6 photo">
+                    <div class="d-flex justify-between">
+                        <div class="col-6 order-img d-flex justify-start">
                             <div class="border"></div>
-                            <img src="{% static 'img/foto.png' %}">
+                            <img src="{{ STATIC_PREFIX }}img/foto.png">
                         </div>
-                        <div class="col-6 select_div">
-                            <h2>Зробіть <span>вибір</span></h2>
+                        <div class="col-6 order-options">
+                            <h2>Зробіть <span class="yellow">вибір</span></h2>
                             <select>
                                 <option disabled selected>Місто</option>
                                 <option></option>
@@ -90,7 +90,7 @@
                                 <option disabled selected>Вартість</option>
                                 <option></option>
                             </select>
-                            <div class="d-flex col-12">
+                            <div class="d-flex col-12 justify-end">
                                 <button class="btn--show_all">Показати все</button>
                                 <button class="btn--forward">Вперед >></button>
                             </div>
@@ -100,35 +100,35 @@
             </div>
             <div class="container">
                 <div class="advantages">
-                    <h2 class="col-12">деякі наші <span>переваги</span></h2>
+                    <h2 class="col-12">деякі наші <span class="yellow">переваги</span></h2>
                     <p class="text-title">Переконайтеся в тому, що ми найкращі, ряд переваг над нашими конкурентами</p>
                 </div>
                 <div class="advantages_list d-flex col-12 flex-wrap">
                     <div class="row col-12">
                         <div class="col-4 d-block">
-                            <img src="{% static 'img/individual approach.png' %}" alt="in_pid" />
+                            <img src="{{ STATIC_PREFIX }}img/individual approach.png" alt="in_pid" />
                             <h4>індивідуальний підхід</h4>
                         </div>
                         <div class="col-4 d-block">
-                            <img src="{% static 'img/the highest standards.png' %}" alt="high_standarts" />
+                            <img src="{{ STATIC_PREFIX }}img/the highest standards.png" alt="high_standarts" />
                             <h4>найвищі стандарти</h4>
                         </div>
                         <div class="col-4 d-block">
-                            <img src="{% static 'img/lawyers support.png' %}" alt="yur_support" />
+                            <img src="{{ STATIC_PREFIX }}img/lawyers support.png" alt="yur_support" />
                             <h4>юридична підтримка</h4>
                         </div>
                     </div>
                     <div class="row col-12">
                         <div class="col-4 d-block">
-                            <img src="{% static 'img/flexib prices.png'%}" alt="diapason_tsin" />
+                            <img src="{{ STATIC_PREFIX }}img/flexib prices.png" alt="diapason_tsin" />
                             <h4>гнучкий діапазон цін</h4>
                         </div>
                         <div class="col-4 d-block">
-                            <img src="{% static 'img/money b.png' %}" alt="garantiya" />
+                            <img src="{{ STATIC_PREFIX }}img/money b.png" alt="garantiya" />
                             <h4>гарнатія повернення <br> коштів</h4>
                         </div>
                         <div class="col-4 d-block">
-                            <img src="{% static 'img/serv.png'%}" alt="24-7-servise" />
+                            <img src="{{ STATIC_PREFIX }}img/serv.png" alt="24-7-servise" />
                             <h4>24/7 обслуговування <br> замовників</h4>
                         </div>
                         <button class="btn--forward">Більше >></button>
@@ -137,23 +137,23 @@
             </div>
             <div class="container lightgrey">
                 <h2>ми пропонуємо<br>
-                    <span>житло таких рівнів</span></h2>
+                    <span class="yellow">житло таких рівнів</span></h2>
                 <p class="text-title">Ми допоможемо підібрати елітне житло різних рівнів на будь який <br>смак для
                     найвибагливіших замовників</p>
                 <div class="house_level d-flex justify-evently">
                     <div id="standart">
                         <h3>STANDART</h3>
-                        <img src="{% static 'img/standart-home.png'%}" alt="standart_home">
+                        <img src="{{ STATIC_PREFIX }}img/standart-home.png" alt="standart_home">
                         <button class="btn--forward">Підібрати</button>
                     </div>
                     <div id="luxory">
                         <h3>LUXURY</h3>
-                        <img src="{% static 'img/luxury-homes-in-texas.png'%}" alt="luxury_home">
+                        <img src="{{ STATIC_PREFIX }}img/luxury-homes-in-texas.png" alt="luxury_home">
                         <button class="btn--forward">Підібрати</button>
                     </div>
                     <div id="premium">
                         <h3>PREMIUM</h3>
-                        <img src="{% static 'img/premium-house.png' %}" alt="premium_home">
+                        <img src="{{ STATIC_PREFIX }}img/premium-house.png" alt="premium_home">
                         <button class="btn--forward">Підібрати</button>
                     </div>
                 </div>

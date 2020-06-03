@@ -1,10 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<section class="apartments">
+<section class="select_apartment">
     <div class="container">
         <div class="row">
-            {% if apartments %}
             <div class="col-12">
                 <p class="text-title upper">
                     Вибір власного житла- це один з найважливіших рішень у житті людини. Це не дивно, адже від вибору
@@ -13,55 +12,51 @@
                     і зробити максимально правильний вибір квартири для свого подальшого життя.
                 </p>
             </div>
-            {% for apartment in apartments %}
-            <div class="col-lg-6 col-sm-12">
-                <img src="{{ apartment.photo_0.url }}" />
-            </div>
-            <div class="offset-lg-1 col-lg-5 col-sm-12 info">
-                <h5>{{ apartment.title }}</h5>
-                <div class="flat--bcg ">
-                    <div>
-                        <p><span class="title">Місто:</span><span class="name">{{ apartment.city }}</span></p>
-                        <p><span class="title">Площа:</span><span
-                                class="name">{{ apartment.square_all }}м<sup>2</sup></span></p>
-                    </div>
-                    <div>
-                        <p><span class="title">Тип житла:</span><span class="name">{{ apartment.apartment_type }}</span>
-                        </p>
-                    </div>
+            <!-- Галерея------------------------------- -->
+            <div class="col-12 galery">
+                <div class="main-apartment">
+                    <div class="right"> <img src="{% static 'img/apartments/right.png' %}" /> </div>
+                    <img src="{{ apartment.photo_0.url }}" width="100%" alt="" id="main">
+                    <div class="left"> <img src="{% static 'img/apartments/left.png' %}" /> </div>
                 </div>
-                <div class="btn"><button class="btn--forward">Більше>></button></div>
             </div>
-            {% endfor %}
-            {% else  %}
-            <div class="col">Нічого не продають</div>
-            {% endif %}
+            <div class="hidden">
+                <div class="slike">
+                    <img src="{{ apartment.photo_0.url }}" width="100%" alt="" class="small-slike">
+                    <img src="{{ apartment.photo_1.url }}" width="100%" alt="" class="small-slike">
+                    <img src="{{ apartment.photo_2.url }}" width="100%" alt="" class="small-slike">
+                    <img src="{{ apartment.photo_3.url }}" width="100%" alt="" class="small-slike">
+                    <img src="{{ apartment.photo_4.url }}" width="100%" alt="" class="small-slike">
+                    <img src="{{ apartment.photo_5.url }}" width="100%" alt="" class="small-slike">
+                    <img src="{{ apartment.photo_6.url }}" width="100%" alt="" class="small-slike">
+                    <img src="{{ apartment.photo_7.url }}" width="100%" alt="" class="small-slike">
+                </div>
+            </div>
+            <!-- --------------------------------------------------------- -->
         </div>
-        <div class="col-12 space">
-
-            <div class="pagination">
-                <span class="step-links">
-                    <nav aria-label="Page navigation example ">
-                        <ul class="pagination">
-                            {% if apartments.has_previous %}
-                            <li class="page-item"><a href="?page=1" class="page-link">&laquo; first</a></li>
-                            <li class="page-item"><a href="?page={{ apartments.previous_page_number }}"
-                                    class="page-link">previous</a></li>
-                            {% endif %}
-
-                            <span class="current">
-                                Page {{ apartments.number }} of {{ apartments.paginator.num_pages }}.
-                            </span>
-
-                            {% if apartments.has_next %}
-                            <li class="page-item"><a href="?page={{ apartments.next_page_number }}"
-                                    class="page-link">next</a></li>
-                            <li class="page-item"><a href="?page={{ apartments.paginator.num_pages }}"
-                                    class="page-link">last &raquo;</a></li>
-                            {% endif %}
-                        </ul>
-                    </nav>
-                </span>
+    </div>
+    <div class="container">
+        <div class="row flat--bcg">
+            <div class="offset-1 col-2 title">
+                <p>Місто:</p>
+                <p>Тип житла:</p>
+                <p>Загальна площа:</p>
+                <p>Житлова площа:</p>
+                <p>Кімнат:</p>
+                <p>Поверх:</p>
+            </div>
+            <div class="col-1 name">
+                <p>{{ apartment.city }}</p>
+                <p>{{ apartment.apartment_type }}</p>
+                <p>{{ apartment.square_all }}м<sup>2</sup></p>
+                <p>{{ apartment.square_live }}м<sup>2</sup></p>
+                <p>{{ apartment.rooms }}</p>
+                <p>{{ apartment.floor }}</p>
+            </div>
+            <div class="col-7">
+                <p class="main-text">{{ apartment.description }}</p>
+                <p class="price"><span class="name-big">Вартість</span> <span class="title-big">{{ apartment.price }}
+                        тис.дол</span></p>
             </div>
         </div>
     </div>

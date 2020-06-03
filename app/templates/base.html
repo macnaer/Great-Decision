@@ -1,4 +1,5 @@
 {% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,6 +24,7 @@
     {% include "partials/_corousel.html" %}
     {% include "partials/_footer.html" %}
     <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/galery_apartment.js' %}"></script>
 </body>
 
 </html>

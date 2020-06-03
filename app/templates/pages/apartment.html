@@ -37,7 +37,33 @@
             <div class="col">Нічого не продають</div>
             {% endif %}
         </div>
-        <div class="col-12 space"> </div>
+        <div class="col-12 space">
+
+            <div class="pagination">
+                <span class="step-links">
+                    <nav aria-label="Page navigation example ">
+                        <ul class="pagination">
+                            {% if apartments.has_previous %}
+                            <li class="page-item"><a href="?page=1" class="page-link">&laquo; first</a></li>
+                            <li class="page-item"><a href="?page={{ apartments.previous_page_number }}"
+                                    class="page-link">previous</a></li>
+                            {% endif %}
+
+                            <span class="current">
+                                Page {{ apartments.number }} of {{ apartments.paginator.num_pages }}.
+                            </span>
+
+                            {% if apartments.has_next %}
+                            <li class="page-item"><a href="?page={{ apartments.next_page_number }}"
+                                    class="page-link">next</a></li>
+                            <li class="page-item"><a href="?page={{ apartments.paginator.num_pages }}"
+                                    class="page-link">last &raquo;</a></li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                </span>
+            </div>
+        </div>
     </div>
 </section>
 

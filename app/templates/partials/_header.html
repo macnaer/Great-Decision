@@ -19,14 +19,31 @@
                             <img src="{% static 'img/phone.png' %}" alt="Phone">
                             <p>Tel + 380 111 8011</p>
                         </div>
-                        <div>
-                            <img src="{% static 'img/mail.png' %}" alt="Mail">
-                            <p>Email: exclusivedirection@ade.com</p>
-                        </div>
-                        <div class="login">
-                            <img src="{% static 'img/login.png' %}" alt="Login">
-                            <a href="#">Кабінет</a>
-                        </div>
+                        <ul class="navbar-nav ml-auto row">
+                            {% if user.is_authenticated %}
+                            <li {% if 'dashboard' in request.path %} class="nav-item active" {% else %} class="nav-item"
+                                {% endif %}>
+
+                                <a href="{% url 'dashboard' %}">Welcome {{ user.username }}</a>
+                            </li>
+
+                            <li class="nav-item mr3">
+                                <a href="javascript:{document.getElementById('logout').submit()}">Logout</a>
+                            </li>
+                            <form action="{% url 'logout' %}" id='logout' method="POST">
+                                {% csrf_token  %}
+                                <input type="hidden" />
+                            </form>
+                            {% else %}
+                            <li {% if 'login' in request.path %} class="nav-item active" {% else %} class="nav-item"
+                                {% endif %}>
+                                <a href="{% url 'login' %}">Login</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'register' %}">Register</a>
+                            </li>
+                            {% endif %}
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -41,9 +58,10 @@
                         <a {% if "about" == request.path %} class="active" {% endif %} href="{% url 'about' %}">Про
                             нас</a>
                         <a href="guarantee.html">Гарантії</a>
-                        <a {% if "we_offer" == request.path %} class="active" {% endif %} href="{% url 'we_offer' %}">Що
+                        <a {% if "estatelist" == request.path %} class="active" {% endif %}
+                            href="{% url 'estatelist' %}">Що
                             пропонуємо</a>
-                        <a href="">Замовити</a>
+                        <a href="{% url 'estatelist' %}">Замовити</a>
                         <a href="">Ціни</a>
                         <a href="">Відгуки</a>
                         <a href="discounts.html">Знижки</a>

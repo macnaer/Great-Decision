@@ -23,3 +23,20 @@ def apartment(request, apartment_id):
         "apartment": apartment
     }
     return render(request, 'pages/apartment.html', context)
+
+
+def search(request):
+    estate_list = Apartments.objects.order_by(
+        "-list_date").filter(is_publish=True)
+
+    if 'city' in request.GET:
+        city = request.GET['city']
+
+        if city:
+            estate_list = estate_list.filter(city__iexact=city)
+
+    print(estate_list)
+    context = {
+        'estate_list': estate_list
+    }
+    return render(request, 'pages/search.html', context)

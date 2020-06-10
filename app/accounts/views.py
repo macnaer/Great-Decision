@@ -4,7 +4,21 @@ from django.contrib.auth.models import User
 
 
 def login(request):
-    return render(request, 'accounts/login.html')
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+
+        user = auth.authenticate(username=username, password=password)
+
+        if user is not None:
+            auth.login(request, user)
+            print("User logged!")
+            return redirect("dashboard")
+        else:
+            print("Invalid login or password")
+            return redirect('login')
+    else:
+        return render(request, 'accounts/login.html')
 
 
 def register(request):
@@ -33,7 +47,7 @@ def register(request):
                         last_name=last_name
                     )
                     user.save()
-                    print("You are now registred. Pliese log in")
+                    print("You are now registred. Please log in")
                     return redirect('login')
         else:
             print("Passwords do not match")
@@ -42,6 +56,7 @@ def register(request):
 
 
 def logout(request):
+
     return render(request, 'accounts/logout.html')
 
 

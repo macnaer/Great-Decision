@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib import auth
+from django.contrib import auth, messages
 from django.contrib.auth.models import User
 
 
@@ -12,10 +12,10 @@ def login(request):
 
         if user is not None:
             auth.login(request, user)
-            print("User logged!")
+            messages.success(request, "User logged")
             return redirect("dashboard")
         else:
-            print("Invalid login or password")
+            messages.error(request, "Invalid login or password")
             return redirect('login')
     else:
         return render(request, 'accounts/login.html')
@@ -32,11 +32,11 @@ def register(request):
 
         if password == confirm_password:
             if User.objects.filter(username=username).exists():
-                print("User exists")
+                messages.error(request, "User exists")
                 return redirect('register')
             else:
                 if User.objects.filter(email=email).exists():
-                    print("Email exists")
+                    messages.error(request, "Email exists")
                     return redirect('register')
                 else:
                     user = User.objects.create_user(
@@ -47,10 +47,11 @@ def register(request):
                         last_name=last_name
                     )
                     user.save()
-                    print("You are now registred. Please log in")
+                    messages.success(
+                        request, "You are now registred. Please log in")
                     return redirect('login')
         else:
-            print("Passwords do not match")
+            messages.error(request, "Passwords do not match")
             return redirect('register')
     return render(request, 'accounts/register.html')
 
@@ -58,7 +59,7 @@ def register(request):
 def logout(request):
     if request.method == 'POST':
         auth.logout(request)
-        print("Logged out")
+        messages.success(request, "Logged out")
     return redirect('index')
 
 

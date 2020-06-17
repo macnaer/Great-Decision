@@ -1,6 +1,15 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<h2>Dashboard</h2>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2>Dashboard</h2>
+            {% include 'partials/_alerts.html' %}
+        </div>
+    </div>
+</div>
+
+
 
 {% endblock %}

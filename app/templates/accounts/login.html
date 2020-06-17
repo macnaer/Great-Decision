@@ -5,6 +5,7 @@
     <h1>Login</h1>
     <div class="main-agileinfo">
         <div class="agileits-top">
+            {% include 'partials/_alerts.html' %}
             <form action="{% url 'login' %}" method="POST">
                 {% csrf_token %}
                 <input class="text mt-4" type="text" name="username" placeholder="Username" required="">
